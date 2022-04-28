@@ -1,0 +1,82 @@
+[
+  {
+    "uuid": "55bec336-8110-4c26-a51c-04bd8b90f65c",
+    "name": "albertlin2008",
+    "created": "2021-08-30 04:48:09 +0000",
+    "source": "jie00029",
+    "expires": "forever",
+    "reason": "破壞他人建築"
+  },
+  {
+    "uuid": "9e36090a-fa70-45fb-b4da-165756cdc156",
+    "name": "oiryskr",
+    "created": "2022-02-16 10:13:16 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "偵測到非法程式"
+  },
+  {
+    "uuid": "9bd7b2e1-57ae-452d-a074-77f42aedca28",
+    "name": "hao0806",
+    "created": "2022-03-11 15:41:06 +0000",
+    "source": "§6伺服器",
+    "expires": "forever",
+    "reason": "惡意破壞惡意攻擊"
+  },
+  {
+    "uuid": "62aa4955-15de-46ff-87c9-c5512e94d901",
+    "name": "Tomeest",
+    "created": "2022-03-14 11:22:03 +0000",
+    "source": "jie00029",
+    "expires": "forever",
+    "reason": "偷竊他人物品情節重大"
+  },
+  {
+    "uuid": "d042de91-f6e9-4b7e-8cdc-9f81caae86f4",
+    "name": "Lacuna_0",
+    "created": "2022-01-30 11:27:11 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "屢勸不聽未遵守伺服器規定，破壞伺服器重生點南區管理員區域建築物"
+  },
+  {
+    "uuid": "13dcb857-8827-46ae-80e2-ba73fb9baac1",
+    "name": "herocarnival",
+    "created": "2021-11-13 03:49:52 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "惡意破壞"
+  },
+  {
+    "uuid": "2e2cfac9-57e6-4038-9172-b5c46d7c4fda",
+    "name": "QQNIELord5205",
+    "created": "2022-03-05 04:26:28 +0000",
+    "source": "§6伺服器",
+    "expires": "forever",
+    "reason": "竊盜他人個人物品及惡意破壞"
+  },
+  {
+    "uuid": "c8b2b75e-2f7d-405e-a5ce-c9fec511c2c0",
+    "name": "HamsterSqueak66",
+    "created": "2022-03-08 12:22:29 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "竊盜他人物品且惡意破壞，已提醒過再犯"
+  },
+  {
+    "uuid": "2edcae2c-7e49-4ae0-83ec-bdcef128eadf",
+    "name": "os_club_smile",
+    "created": "2022-04-04 09:48:56 +0000",
+    "source": "jie00029",
+    "expires": "forever",
+    "reason": "使用非法程式"
+  },
+  {
+    "uuid": "80c562d6-df88-4ce1-927c-d5693faf27e2",
+    "name": "UJOP007",
+    "created": "2022-01-25 09:12:36 +0000",
+    "source": "jie00029",
+    "expires": "forever",
+    "reason": "破壞地域座標-33 72 -9 的地獄門未修復屢勸不聽"
+  }
+]
