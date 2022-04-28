@@ -1,0 +1,2 @@
+#!/bin/bash
+java -XX:+UseZGC -Xms12G -Xmx12G -XX:+UseNUMA -XX:+UseLargePages -jar yln.jar nogui
