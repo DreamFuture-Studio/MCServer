@@ -1,0 +1,1321 @@
+# Config for ChatItem
+# For info visit
+# Spigotmc: https://www.spigotmc.org/resources/chatitem.19064/
+#唱片ord: https://discord.gg/ttA5CjMhk7
+ 
+# Version info, DON'T TOUCH
+config-version: 13
+ 
+# By default, it's in "both" mode.
+#
+# Available mode :
+# - "both" : Prevent chat editing with multiple plugins by using all ways possible to edit the chat.
+# - "auto" : Choose automatically between all available according to actual plugins.
+# - "packet" : The working system for 1.4's ChatItem version (and older)
+#        It was working with lot of others chat plugin, specially those who made hover text.
+# - "chat" : New system which works without other chat plugin, which is simpler and with lower
+#        amount of possible issues.
+# You can replace 'both' by another mode that should correspond to what you want.
+# If you don't know which one use, come on discord (link at begin of config or in spigotmc)
+manager: "both"
+
+#General configuration
+general:
+  # The placeholders to display an item in chat.
+  placeholders:
+    - "[i]"
+    - "{item}"
+  # The format of the item placeholders.
+  name-format: "&b&l&o{name} {amount}&r"
+  # The format of the {amount} placeholder.
+  # {times} correspond to amount of item
+  amount-format: "x{times}"
+  # Should we use the translated item name or the custom name of an item
+  color-if-already-colored: true
+  # Should we always show the amount, even if it's just one
+  force-add-amount: true
+  #  Should we let the message through, as-is (with the placeholder not replaced)
+  # if the user doesn't have permission or if the user is on cooldown?
+  let-message-through: true
+  # Should we allow users to show their hands off
+  deny-if-no-item: false
+  #  If the above (deny-if-no-item) is set to false, what should the placeholder be replaced with?
+  # Bellow you can configure that behaviour.
+  hand:
+    # Should we completely disable users being able to show their hands off
+    disabled: false
+    # The name of the hand chat message.
+    name: "&b&l&o{display-name}&b&l&o的手"
+    # The lore of the hand chat message.
+    tooltip:
+      - "&7在這看不到任何東西"
+      - "&7{display-name}的手上是空的"
+  # Manage what is showed for bugged client.
+  # Specially lunar client with old version (1.7)
+  bugged_client:
+    # You can try to show the most informations as possible:
+    # item name & lore. You will not see specific item meta-data
+    # Or just show the bugged tooltip.
+    #
+    # Action available:
+    # nothing: no hover
+    # item: only try to get values from item
+    # tooltip: only show tooltip
+    # show_both: show item & tooltip below
+    action: "show_both"
+    tooltip:
+      - "&7在您的客戶端中物品解析失敗"
+ 
+  #  Here you can choose which commands will the plugin attempt to parse. Console commands will all be ignored,
+  # however player commands will be taken into consideration. To add a command, simply add an element to the list
+  # bellow containing an alias (or name) for that command.
+  #  It is enough to add only ONE alias for each command, and the others will automatically be supported. However,
+  # this is only available for plugin commands. If you're planning to add bukkit or mojang commands here, you'll have
+  # to manually specify ALL aliases for those.
+  commands:
+    - "msg"
+  #  Here you can set when the players should see the no-permission message (defined in the 'Messages' section bellow).
+  # 'normal' dictates whether the user should see the message when using the placeholder in normal chat, and 'command'
+  # sets whether the user should see it when using the placeholder in a command.
+  show-no-permission-message:
+    normal: true
+    command: false
+  # Manage permission to use placeholders
+  permission:
+    enabled: false
+    name: "chatitem.use"
+  #  Here you can set the limit on how many placeholders a user is allowed to use inside a message.
+  # Allowing too many placeholders can result in client crashes.
+  limit: 8
+  #  The cooldown, in seconds, between allowing players to send messages with items. Setting this to 0
+  # will remove the cooldown entirely.
+  cooldown: 60
+  # Check if the plugin have update
+  check-update: true
+ 
+ 
+#  Messages section. You can disable any of them by simply leaving them empty, like this: ""
+messages:
+  # The message sent if showing off hands is disabled and the user isn't holding an item.
+  # Only works if 'General.deny-if-no-item' is set to true!
+  deny-message: "&c&l你手上沒東西!"
+  # The message sent after the configuration file is successfully reloaded.
+  reload-success: "&b&l重新載入成功!"
+  # The message sent if the player is on cooldown from sending a placeholder.
+  cooldown-message: "&c&l你每分鐘只能在聊天欄使用一次物品!你還需要{remaining}秒!"
+  # The message sent if the no permission messages are enabled and the user doesn't have permission to send an item placeholder.
+  no-permission: "&c&l我很抱歉，但你不被允許在聊天室使用物品!"
+  # The message sent if the player uses more placeholders than configured in one message.
+  limit-message: "&c&l你每個訊息只能新增8個物品!"
+  # All message about the update of the plugin
+  join-update:
+    message: "&c有可用的新版的ChatItem。&a點擊這裡以下載。"
+    hover: "&6點擊以前往Spigot頁面!"
+  # For all commands ran by console by reserved to player
+  only-players: "&c只有玩家可以執行此指令"
+  # All messages for the /chatitem command
+  chatitem-cmd:
+    help:
+    - "&6/chatitem admin : &7管理一些選項"
+    - "&6/chatitem links : &7看看全部有用的連結"
+    links:
+      begin: "&a全部有用的連結: "
+      list:
+        1:
+          message: "\n&7- &eSpigotmc更新"
+          hover: "&6點擊以前往Spigot頁面!"
+          link: "https://www.spigotmc.org/resources/19064/"
+        2:
+          message: " "
+        3:
+          message: "&7(原作者: &aDadus33"
+          hover: "&6看看&aDadus33&6的個人檔案"
+          link: "https://www.spigotmc.org/members/10224/"
+        4:
+          message: "&7, "
+        5:
+          message: "&7維護者: &aElikill58&7)"
+          hover: "&6看看&aElikill58&6的個人檔案"
+          link: "https://www.spigotmc.org/members/310762/"
+        6:
+          message: "\n&7- &6在Discord尋求協助"
+          hover: "&6點擊以開啟Discord!"
+          link: "https://discord.gg/ttA5CjMhk7"
+  # All messages in admin inventory
+  admin-inv:
+    name: "ChatItem - Admin"
+    close: "Close"
+    # Generic lores for options items
+    amount-lore:
+    - "&a左擊: &6+1"
+    - "&a右擊: &6-1"
+    bool-lore:
+    - "&7點擊以啟用/停用"
+    # Name of options items
+    color-if-already-colored: "&6已被上色: %state%"
+    deny-no-item: "&6因沒有物品而被拒絕: %state%"
+    hand-disabled: "&6手已被停用: %state%"
+    limit-per-message: "&6限制每個訊息: &a%state%"
+    cooldown: "&6冷卻時間: &a%state%"
+    debug: "&6除錯: &a%state%"
+    # Change name and lore of all managers
+    manager:
+      both:
+        name: "&6Use both manager&7: &aPacket & Chat"
+        lore:
+        - "&aTry both manager. Very usefull when you have lot of plugins"
+        - "&eIt enable to use ChatItem for all type of messages"
+        - ""
+        - "&7Since ChatItem v2.1"
+      auto:
+        name: "&6Choose automatically"
+        lore:
+        - "&aChoose automatically between managers available"
+        - "&aaccording to actuals plugins."
+        - "&eThis is better when you are not using own plugin."
+        - ""
+        - "&7Since ChatItem v2.1"
+      packet:
+        name: "&6Intercept packets"
+        lore:
+        - "&aChange message sent directly by intercepting packet"
+        - "&aCan use &6ProtocolLib &aif present."
+        - "&cCan have error with &e/cir &c!"
+        - ""
+        - "&7Originally made until ChatItem v1.4"
+      chat:
+        name: "&6Change basic message"
+        lore:
+        - "&aVery quick and usefull for server without plugin message !"
+        - "&aIt enable to use ChatItem without packet reading."
+        - "&eIt's more optimized than others manager"
+        - ""
+        - "&7Since ChatItem v2.0"
+      # The item that show the actual manager
+      actual:
+        name: '&6Actual manager: %manager%'
+        lore: []
+  #  All the fields bellow shold be translated in your own language. Those will be used in the {remaining} format of the cooldown message.
+  # You should leave a space as a PREFIX as we will add a number in front of them
+  seconds: " 秒"
+  minutes: " 分鐘"
+  hours: " 小時"
+  enabled: "&a啟用"
+  disabled: "&c停用"
+ 
+ 
+#  Translations
+# This is used to display prettier names in chat for items/blocks. Modifying this is usually unnecessary unless you know what you're doing.
+translations:
+##塊s ##
+  STONE:
+    0: "石頭"
+    1: "花崗岩"
+    2: "拋光花崗岩"
+    3: "閃長岩"
+    4: "拋光閃長岩"
+    5: "安山岩"
+    6: "拋光安山岩"
+  GRASS:
+    0: "草"
+  DIRT:
+    0: "泥土"
+    1: "粗泥"
+    2: "灰壤"
+  COBBLESTONE:
+    0: "鵝卵石"
+  WOOD:
+    0: "橡木材"
+    1: "杉木材"
+    2: "樺木材"
+    3: "叢林木材"
+    4: "相思木材"
+    5: "黑橡木材"
+  SAPLING:
+    0: "橡樹苗"
+    1: "杉樹苗"
+    2: "樺樹苗"
+    3: "叢林樹苗"
+    4: "相思樹苗"
+    5: "黑橡樹苗"
+  BEDROCK:
+    0: "基岩"
+  WATER:
+    0: "水"
+  STATIONARY_WATER:
+    0: "靜止的水"
+  LAVA:
+    0: "岩漿"
+  STATIONARY_LAVA:
+    0: "靜止的岩漿"
+  SAND:
+    0: "沙子"
+    1: "紅沙"
+  GRAVEL:
+    0: "礫石"
+  GOLD_ORE:
+    0: "金礦"
+  IRON_ORE:
+    0: "鐵礦"
+  COAL_ORE:
+    0: "煤礦"
+  LOG:
+    0: "橡原木"
+    1: "杉原木"
+    2: "樺原木"
+    3: "叢林原木"
+  LEAVES:
+    0: "橡樹葉"
+    1: "杉樹葉"
+    2: "樺樹葉"
+    3: "叢林樹葉"
+  SPONGE:
+    0: "海綿"
+    1: "濕海綿"
+  GLASS:
+    0: "玻璃"
+  LAPIS_ORE:
+    0: "青金石礦"
+  LAPIS_BLOCK:
+    0: "青金石塊"
+  DISPENSER:
+    0: "發射器"
+  SANDSTONE:
+    0: "砂岩"
+    1: "浮雕砂岩"
+    2: "平滑砂岩"
+  NOTE_BLOCK:
+    0: "音階盒"
+  BED_BLOCK:
+    0: "床"
+  POWERED_RAIL:
+    0: "動力鐵軌"
+  DETECTOR_RAIL:
+    0: "感測鐵軌"
+  PISTON_STICKY_BASE:
+    0: "黏性活塞"
+  WEB:
+    0: "蜘蛛網"
+  LONG_GRASS:
+    0: "枯灌木"
+    1: "芒草"
+    2: "蕨"
+  DEAD_BUSH:
+    0: "枯灌木"
+  PISTON_BASE:
+    0: "活塞"
+  PISTON_EXTENSION:
+    0: "活塞伸展狀態"
+  WOOL:
+    0: "白色羊毛"
+    1: "橙色羊毛"
+    2: "洋紅色羊毛"
+    3: "淺藍色羊毛"
+    4: "黃色羊毛"
+    5: "淺綠色羊毛"
+    6: "粉紅色羊毛"
+    7: "灰色羊毛"
+    8: "淺灰色羊毛"
+    9: "青色羊毛"
+    10: "紫色羊毛"
+    11: "藍色羊毛"
+    12: "棕色羊毛"
+    13: "深綠色羊毛"
+    14: "紅色羊毛"
+    15: "黑色羊毛"
+  PISTON_MOVING_PIECE:
+    0: "活塞(延伸出去的部分)"
+  YELLOW_FLOWER:
+    0: "蒲公英"
+  RED_ROSE:
+    0: "罌粟"
+    1: "藍色蝴蝶蘭"
+    2: "紫紅球花"
+    3: "雛草"
+    4: "紅色鬱金香"
+    5: "橙色鬱金香"
+    6: "白色鬱金香"
+    7: "粉紅色鬱金香"
+    8: "雛菊"
+  BROWN_MUSHROOM:
+    0: "棕色蘑菇"
+  RED_MUSHROOM:
+    0: "紅色蘑菇"
+  GOLD_BLOCK:
+    0: "黃金方塊"
+  IRON_BLOCK:
+    0: "鐵方塊"
+  DOUBLE_STEP:
+    0: "石頭雙半磚"
+    1: "砂岩 雙半磚"
+    2: "木質雙半磚"
+    3: "鵝卵石雙半磚"
+    4: "紅磚雙半磚"
+    5: "石磚雙半磚"
+    6: "地獄磚雙半磚"
+    7: "石英雙半磚"
+    8: "平滑石頭雙半磚"
+    9: "平滑砂岩 雙半磚"
+  STEP:
+    0: "石頭半磚"
+    1: "砂岩半磚"
+    2: "石化橡木半磚"
+    3: "鵝卵石半磚"
+    4: "紅磚半磚"
+    5: "石磚半磚"
+    6: "地獄磚半磚"
+    7: "石英半磚"
+  BRICK:
+    0: "紅磚"
+  TNT:
+    0: "TNT"
+  BOOKSHELF:
+    0: "書櫃"
+  MOSSY_COBBLESTONE:
+    0: "青苔石"
+  OBSIDIAN:
+    0: "黑曜石"
+  TORCH:
+    0: "火把"
+  FIRE:
+    0: "火"
+  MOB_SPAWNER:
+    0: "怪物生怪磚"
+    50: "苦力怕生怪磚"
+    51: "骷髏生怪磚"
+    52: "蜘蛛生怪磚"
+    53: "巨人生怪磚"
+    54: "殭屍生怪磚"
+    55: "史萊姆生怪磚"
+    56: "地獄幽靈生怪磚"
+    57: "殭屍豬人生怪磚"
+    58: "終界使者生怪磚"
+    59: "洞穴蜘蛛生怪磚"
+    60: "蠹魚生怪磚"
+    61: "烈焰使者生怪磚"
+    62: "岩漿立方怪生怪磚"
+    63: "終界龍生怪磚"
+    90: "豬生怪磚"
+    91: "綿羊生怪磚"
+    92: "牛生怪磚"
+    93: "雞生怪磚"
+    94: "魷魚生怪磚"
+    95: "狼生怪磚"
+    96: "哞菇生怪磚"
+    97: "雪人生怪磚"
+    98: "山貓生怪磚"
+    99: "鐵巨人生怪磚"
+    120: "村民生怪磚"
+  WOOD_STAIRS:
+    0: "橡木樓梯"
+  CHEST:
+    0: "儲物箱"
+  REDSTONE_WIRE:
+    0: "紅石線路"
+  DIAMOND_ORE:
+    0: "鑽石礦"
+  DIAMOND_BLOCK:
+    0: "鑽石方塊"
+  WORKBENCH:
+    0: "合成台"
+  CROPS:
+    0: "小麥"
+  SOIL:
+    0: "耕地"
+  FURNACE:
+    0: "熔爐"
+  BURNING_FURNACE:
+    0: "燃燒中的熔爐"
+  SIGN_POST:
+    0: "告示牌(立在地上)"
+  WOODEN_DOOR:
+    0: "木門"
+  LADDER:
+    0: "梯子"
+  RAILS:
+    0: "鐵軌"
+  COBBLESTONE_STAIRS:
+    0: "鵝卵石樓梯"
+  WALL_SIGN:
+    0: "告示牌(貼在牆上)"
+  LEVER:
+    0: "控制桿"
+  STONE_PLATE:
+    0: "石製壓力板"
+  IRON_DOOR_BLOCK:
+    0: "鐵 門"
+  WOOD_PLATE:
+    0: "木壓力板"
+  REDSTONE_ORE:
+    0: "紅石礦"
+  GLOWING_REDSTONE_ORE:
+    0: "紅石礦(發光中的)"
+  REDSTONE_TORCH_OFF:
+    0: "紅石火把(off)"
+  REDSTONE_TORCH_ON:
+    0: "紅石火把(on)"
+  STONE_BUTTON:
+    0: "按鈕"
+  SNOW:
+    0: "雪"
+  ICE:
+    0: "冰"
+  SNOW_BLOCK:
+    0: "雪塊"
+  CACTUS:
+    0: "仙人掌"
+  CLAY:
+    0: "黏土塊"
+  SUGAR_CANE_BLOCK:
+    0: "甘蔗"
+  JUKEBOX:
+    0: "唱片機"
+  FENCE:
+    0: "柵欄"
+  PUMPKIN:
+    0: "南瓜"
+  NETHERRACK:
+    0: "地獄石"
+  SOUL_SAND:
+    0: "靈魂沙"
+  GLOWSTONE:
+    0: "螢光石"
+  PORTAL:
+    0: "傳送門"
+  JACK_O_LANTERN:
+    0: "南瓜燈"
+  CAKE_BLOCK:
+    0: "蛋糕塊"
+  DIODE_BLOCK_OFF:
+    0: "紅石中繼器(off)"
+  DIODE_BLOCK_ON:
+    0: "紅石中繼器(on)"
+  LOCKED_CHEST:
+    0: "上鎖的儲物箱"
+  STAINED_GLASS:
+    0: "白色玻璃"
+    1: "橙色玻璃"
+    2: "洋紅色玻璃"
+    3: "淺藍色玻璃"
+    4: "黃色玻璃"
+    5: "淺綠色玻璃"
+    6: "粉紅色玻璃"
+    7: "灰色玻璃"
+    8: "淺灰色玻璃"
+    9: "青色玻璃"
+    10: "紫色玻璃"
+    11: "藍色玻璃"
+    12: "棕色玻璃"
+    13: "綠色玻璃"
+    14: "紅色玻璃"
+    15: "黑色玻璃"
+  TRAP_DOOR:
+    0: "地板門"
+  MONSTER_EGGS:
+    0: "石頭(蠹魚)"
+    1: "鵝卵石(蠹魚)"
+    2: "石頭紅磚(蠹魚)"
+  SMOOTH_BRICK:
+    0: "石磚"
+    1: "青苔石磚"
+    2: "裂紋石磚"
+    3: "浮雕石磚"
+  HUGE_MUSHROOM_1:
+    0: "巨型棕色蘑菇"
+  HUGE_MUSHROOM_2:
+    0: "巨型紅色蘑菇"
+  IRON_FENCE:
+    0: "鐵柵欄"
+  THIN_GLASS:
+    0: "玻璃片"
+  MELON_BLOCK:
+    0: "西瓜"
+  PUMPKIN_STEM:
+    0: "南瓜根"
+  MELON_STEM:
+    0: "西瓜根"
+  VINE:
+    0: "藤蔓"
+  FENCE_GATE:
+    0: "柵欄門"
+  BRICK_STAIRS:
+    0: "紅磚樓梯"
+  SMOOTH_STAIRS:
+    0: "石頭紅磚樓梯"
+  MYCEL:
+    0: "菌絲土"
+  WATER_LILY:
+    0: "荷葉"
+  NETHER_BRICK:
+    0: "地獄磚"
+  NETHER_FENCE:
+    0: "地獄磚柵欄"
+  NETHER_BRICK_STAIRS:
+    0: "地獄磚樓梯"
+  NETHER_WARTS:
+    0: "地獄疙瘩"
+  ENCHANTMENT_TABLE:
+    0: "附魔台"
+  BREWING_STAND:
+    0: "釀造台"
+  CAULDRON:
+    0: "鍋釜"
+  ENDER_PORTAL:
+    0: "終界傳送門"
+  ENDER_PORTAL_FRAME:
+    0: "終界傳送門邊框"
+  ENDER_STONE:
+    0: "終界石"
+  DRAGON_EGG:
+    0: "龍蛋"
+  REDSTONE_LAMP_OFF:
+    0: "紅石燈(off)"
+  REDSTONE_LAMP_ON:
+    0: "紅石燈(on)"
+  WOOD_DOUBLE_STEP:
+    0: "橡木雙半磚"
+    1: "松木雙半磚"
+    2: "樺木雙半磚"
+    3: "叢林木雙半磚"
+    4: "相思木雙半磚"
+    5: "黑橡木雙半磚"
+  WOOD_STEP:
+    0: "橡木半磚"
+    1: "松木半磚"
+    2: "樺木半磚"
+    3: "叢林木半磚"
+    4: "相思木半磚"
+    5: "黑橡木半磚"
+  COCOA:
+    0: "可可樹"
+  SANDSTONE_STAIRS:
+    0: "砂岩樓梯"
+  EMERALD_ORE:
+    0: "綠寶石礦"
+  ENDER_CHEST:
+    0: "終界箱"
+  TRIPWIRE_HOOK:
+    0: "絆線鉤"
+  TRIPWIRE:
+    0: "絆線"
+  EMERALD_BLOCK:
+    0: "綠寶石方塊"
+  SPRUCE_WOOD_STAIRS:
+    0: "松木樓梯"
+  BIRCH_WOOD_STAIRS:
+    0: "樺木樓梯"
+  JUNGLE_WOOD_STAIRS:
+    0: "叢林木樓梯"
+  COMMAND:
+    0: "指令方塊"
+  BEACON:
+    0: "烽火台"
+  COBBLE_WALL:
+    0: "鵝卵石Wall"
+    1: "青苔鵝卵石Wall"
+  FLOWER_POT:
+    0: "花盆"
+    1: "玫瑰花盆"
+    2: "蒲公英花盆"
+    3: "橡樹苗花盆"
+    4: "杉樹苗花盆"
+    5: "樺樹苗花盆"
+    6: "叢林樹苗花盆"
+    7: "紅色蘑菇花盆"
+    8: "棕色蘑菇花盆"
+    9: "仙人掌花盆"
+    10: "枯灌木花盆"
+    11: "蕨類花盆"
+  CARROT:
+    0: "胡蘿蔔"
+  POTATO:
+    0: "馬鈴薯"
+  WOOD_BUTTON:
+    0: "木按鈕"
+  SKULL:
+    0: "頭顱"
+  ANVIL:
+    0: "鐵砧"
+    1: "鐵砧"
+    2: "鐵砧"
+    3: "鐵砧"
+    4: "微損的鐵砧"
+    5: "微損的鐵砧"
+    6: "微損的鐵砧"
+    7: "微損的鐵砧"
+    8: "耗損的鐵砧"
+    9: "耗損的鐵砧"
+    10: "耗損的鐵砧"
+    11: "耗損的鐵砧"
+  TRAPPED_CHEST:
+    0: "陷阱儲物箱"
+  GOLD_PLATE:
+    0: "輕質測重壓力板"
+  IRON_PLATE:
+    0: "重質測重壓力板"
+  REDSTONE_COMPARATOR_OFF:
+    0: "紅石比較器(沒在動作)"
+  REDSTONE_COMPARATOR_ON:
+    0: "紅石比較器(有在動作)"
+  DAYLIGHT_DETECTOR:
+    0: "日光感測器"
+  REDSTONE_BLOCK:
+    0: "紅石方塊"
+  QUARTZ_ORE:
+    0: "地獄石英礦"
+  HOPPER:
+    0: "漏斗"
+  QUARTZ_BLOCK:
+    0: "石英方塊"
+  CHISELED_QUARTZ_BLOCK:
+    0: "浮雕石英塊"
+    2: "石英柱"
+    3: "石英柱"
+    4: "石英柱"
+  QUARTZ_STAIRS:
+    0: "石英樓梯"
+  ACTIVATOR_RAIL:
+    0: "觸發鐵軌"
+  DROPPER:
+    0: "投擲器"
+  STAINED_CLAY:
+    0: "白色黏土"
+    1: "橙色黏土"
+    2: "洋紅色黏土"
+    3: "淺藍色黏土"
+    4: "黃色黏土"
+    5: "淺綠色黏土"
+    6: "粉紅色黏土"
+    7: "灰色黏土"
+    8: "淺灰色黏土"
+    9: "青色黏土"
+    10: "紫色黏土"
+    11: "藍色黏土"
+    12: "棕色黏土"
+    13: "綠色黏土"
+    14: "紅色黏土"
+    15: "黑色黏土"
+  STAINED_GLASS_PANE:
+    0: "白色玻璃片"
+    1: "橙色玻璃片"
+    2: "洋紅色玻璃片"
+    3: "淺藍色玻璃片"
+    4: "黃色玻璃片"
+    5: "淺綠色玻璃片"
+    6: "粉紅色玻璃片"
+    7: "灰色玻璃片"
+    8: "淺灰色玻璃片"
+    9: "青色玻璃片"
+    10: "紫色玻璃片"
+    11: "藍色玻璃片"
+    12: "棕色玻璃片"
+    13: "綠色玻璃片"
+    14: "紅色玻璃片"
+    15: "黑色玻璃片"
+  LEAVES_2:
+    0: "相思樹葉"
+    1: "黑橡樹葉"
+  ACACIA_STAIRS:
+    0: "相思木樓梯"
+  DARK_OAK_STAIRS:
+    0: "黑橡木樓梯"
+  LOG_2:
+    0: "相思原木"
+    1: "黑橡原木"
+  HAY_BLOCK:
+    0: "乾草捆"
+  CARPET:
+    0: "白色地毯"
+    1: "橙色地毯"
+    2: "洋紅色地毯"
+    3: "淺藍色地毯"
+    4: "黃色地毯"
+    5: "淺綠色地毯"
+    6: "粉紅色地毯"
+    7: "灰色地毯"
+    8: "淺灰色地毯"
+    9: "青色地毯"
+    10: "紫色地毯"
+    11: "藍色地毯"
+    12: "棕色地毯"
+    13: "綠色地毯"
+    14: "紅色地毯"
+    15: "黑色地毯"
+  HARD_CLAY:
+    0: "陶土"
+  COAL_BLOCK:
+    0: "煤炭方塊"
+  PACKED_ICE:
+    0: "冰磚"
+  DOUBLE_PLANT:
+    0: "向日葵"
+    1: "紫丁香"
+    2: "雙高芒草"
+    3: "大型蕨類"
+    4: "玫瑰叢"
+    5: "牡丹花"
+    8: "大型植物頂部"
+    9: "大型植物頂部"
+    10: "大型植物頂部"
+    11: "大型植物頂部"
+    12: "大型植物頂部"
+    13: "大型植物頂部"
+  ## Items ##"
+  IRON_SPADE:
+    0: "鐵鏟"
+  IRON_PICKAXE:
+    0: "鐵鎬"
+  IRON_AXE:
+    0: "鐵斧"
+  FLINT_AND_STEEL:
+    0: "打火石"
+  APPLE:
+    0: "紅色蘋果"
+  BOW:
+    0: "弓"
+  ARROW:
+    0: "箭矢"
+  COAL:
+    0: "煤"
+    1: "木炭"
+  DIAMOND:
+    0: "鑽石"
+  IRON_INGOT:
+    0: "鐵錠"
+  GOLD_INGOT:
+    0: "金錠"
+  IRON_SWORD:
+    0: "鐵劍"
+  WOOD_SWORD:
+    0: "木劍"
+  WOOD_SPADE:
+    0: "木鏟"
+  WOOD_PICKAXE:
+    0: "木鎬"
+  WOOD_AXE:
+    0: "木斧"
+  STONE_SWORD:
+    0: "石劍"
+  STONE_SPADE:
+    0: "石鏟"
+  STONE_PICKAXE:
+    0: "石鎬"
+  STONE_AXE:
+    0: "石斧"
+  DIAMOND_SWORD:
+    0: "鑽石劍"
+  DIAMOND_SPADE:
+    0: "鑽石鏟"
+  DIAMOND_PICKAXE:
+    0: "鑽石鎬"
+  DIAMOND_AXE:
+    0: "鑽石斧"
+  STICK:
+    0: "木棒"
+  BOWL:
+    0: "碗"
+  MUSHROOM_SOUP:
+    0: "蘑菇湯"
+  GOLD_SWORD:
+    0: "金劍"
+  GOLD_SPADE:
+    0: "金鏟"
+  GOLD_PICKAXE:
+    0: "金鎬"
+  GOLD_AXE:
+    0: "金斧"
+  STRING:
+    0: "線"
+  FEATHER:
+    0: "羽毛"
+  SULPHUR:
+    0: "火藥"
+  WOOD_HOE:
+    0: "木鋤"
+  STONE_HOE:
+    0: "石鋤"
+  IRON_HOE:
+    0: "鐵鋤"
+  DIAMOND_HOE:
+    0: "鑽石鋤"
+  GOLD_HOE:
+    0: "金鋤"
+  SEEDS:
+    0: "種子"
+  WHEAT:
+    0: "小麥"
+  BREAD:
+    0: "麵包"
+  LEATHER_HELMET:
+    0: "皮革帽子"
+  LEATHER_CHESTPLATE:
+    0: "皮革外衣"
+  LEATHER_LEGGINGS:
+    0: "皮革褲子"
+  LEATHER_BOOTS:
+    0: "皮革靴子"
+  CHAINMAIL_HELMET:
+    0: "鎖鏈頭盔"
+  CHAINMAIL_CHESTPLATE:
+    0: "鎖鏈胸甲"
+  CHAINMAIL_LEGGINGS:
+    0: "鎖鏈護腿"
+  CHAINMAIL_BOOTS:
+    0: "鎖鏈靴子"
+  IRON_HELMET:
+    0: "鐵頭盔"
+  IRON_CHESTPLATE:
+    0: "鐵胸甲"
+  IRON_LEGGINGS:
+    0: "鐵護腿"
+  IRON_BOOTS:
+    0: "鐵靴子"
+  DIAMOND_HELMET:
+    0: "鑽石頭盔"
+  DIAMOND_CHESTPLATE:
+    0: "鑽石胸甲"
+  DIAMOND_LEGGINGS:
+    0: "鑽石護腿"
+  DIAMOND_BOOTS:
+    0: "鑽石靴子"
+  GOLD_HELMET:
+    0: "金頭盔"
+  GOLD_CHESTPLATE:
+    0: "金胸甲"
+  GOLD_LEGGINGS:
+    0: "金護腿"
+  GOLD_BOOTS:
+    0: "金靴子"
+  FLINT:
+    0: "燧石"
+  PORK:
+    0: "生豬肉"
+  GRILLED_PORK:
+    0: "熟豬肉"
+  PAINTING:
+    0: "Painting"
+  GOLDEN_APPLE:
+    0: "金蘋果"
+    1: "超級金蘋果"
+  SIGN:
+    0: "告示牌"
+  WOOD_DOOR:
+    0: "木門"
+  BUCKET:
+    0: "空桶"
+  WATER_BUCKET:
+    0: "水桶"
+  LAVA_BUCKET:
+    0: "岩漿桶"
+  MINECART:
+    0: "礦車"
+  SADDLE:
+    0: "鞍"
+  IRON_DOOR:
+    0: "鐵門"
+  REDSTONE:
+    0: "紅石粉"
+  SNOW_BALL:
+    0: "雪球"
+  BOAT:
+    0: "船"
+  LEATHER:
+    0: "皮革"
+  MILK_BUCKET:
+    0: "牛奶桶"
+  CLAY_BRICK:
+    0: "黏土磚"
+  CLAY_BALL:
+    0: "黏土"
+  SUGAR_CANE:
+    0: "甘蔗"
+  PAPER:
+    0: "紙"
+  BOOK:
+    0: "書"
+  SLIME_BALL:
+    0: "史萊姆球"
+  STORAGE_MINECART:
+    0: "礦車儲物箱礦車"
+  POWERED_MINECART:
+    0: "熔爐礦車"
+  EGG:
+    0: "雞蛋"
+  COMPASS:
+    0: "羅盤"
+  FISHING_ROD:
+    0: "釣竿"
+  WATCH:
+    0: "時鐘"
+  GLOWSTONE_DUST:
+    0: "螢石粉"
+  RAW_FISH:
+    0: "生魚"
+    1: "生鮭魚"
+    2: "小丑魚"
+    3: "河豚"
+  COOKED_FISH:
+    0: "熟鮭魚"
+  INK_SACK:
+    0: "墨囊"
+    1: "玫瑰紅"
+    2: "仙人掌綠"
+    3: "可可豆"
+    4: "青金石"
+    5: "紫色染料"
+    6: "青色染料"
+    7: "淺灰色染料"
+    8: "灰色染料"
+    9: "粉紅色染料"
+    10: "淺綠色染料"
+    11: "蒲公英黃"
+    12: "淺藍色染料"
+    13: "洋紅色染料"
+    14: "橙色染料"
+    15: "骨粉"
+  BONE:
+    0: "骨頭"
+  SUGAR:
+    0: "糖"
+  CAKE:
+    0: "蛋糕"
+  BED:
+    0: "床"
+  DIODE:
+    0: "紅石中繼器"
+  COOKIE:
+    0: "餅乾"
+  MAP:
+    0: "地圖"
+  SHEARS:
+    0: "剪刀"
+  MELON:
+    0: "西瓜"
+  PUMPKIN_SEEDS:
+    0: "南瓜種子"
+  MELON_SEEDS:
+    0: "西瓜種子"
+  RAW_BEEF:
+    0: "生牛肉"
+  COOKED_BEEF:
+    0: "牛排"
+  RAW_CHICKEN:
+    0: "生雞肉"
+  COOKED_CHICKEN:
+    0: "熟雞肉"
+  ROTTEN_FLESH:
+    0: "腐肉"
+  ENDER_PEARL:
+    0: "終界珍珠"
+  BLAZE_ROD:
+    0: "烈焰棒"
+  GHAST_TEAR:
+    0: "幽靈之淚"
+  GOLD_NUGGET:
+    0: "金粒"
+  NETHER_STALK:
+    0: "地獄疙瘩"
+  POTION:
+    # Regular 藥水s"
+    16: "基礎藥水"
+    8192: "平凡藥水"
+    8203: "跳躍藥水(3:00)"
+    8235: "跳躍藥水II (1:30)"
+    8267: "跳躍藥水(8:00)"
+    8193: "回復藥水(0:45)"
+    8257: "回復藥水(2:00)"
+    8225: "回復藥水II (0:22)"
+    8289: "回復藥水II (1:00)"
+    8194: "迅捷藥水(3:00)"
+    8258: "迅捷藥水(8:00)"
+    8226: "迅捷藥水II (1:30)"
+    8195: "抗火藥水(3:00)"
+    8227: "抗火藥水(3:00)"
+    8259: "抗火藥水(8:00)"
+    8196: "劇毒藥水(0:45)"
+    8260: "劇毒藥水(2:00)"
+    8228: "劇毒藥水II (0:22)"
+    8292: "劇毒藥水II (1:00)"
+    8197: "立即治療藥水"
+    8229: "立即治療藥水 II"
+    8198: "夜視藥水(3:00)"
+    8262: "夜視藥水(8:00)"
+    8200: "虛弱藥水(1:30)"
+    8264: "虛弱藥水(4:00)"
+    8201: "力量藥水(3:00)"
+    8265: "力量藥水(8:00)"
+    8233: "力量藥水II (1:30)"
+    8297: "力量藥水II (4:00)"
+    8202: "緩速藥水(1:30)"
+    8266: "緩速藥水(4:00)"
+    8204: "傷害藥水"
+    8236: "傷害藥水II"
+    8205: "水下呼吸藥水(3:00)"
+    8269: "水下呼吸藥水(8:00)"
+    8206: "隱身藥水(3:00)"
+    8270: "隱身藥水(8:00)"
+    # 飛濺 藥水s"
+    16395: "飛濺跳躍藥水"
+    16427: "飛濺跳躍藥水II"
+    16459: "擴充版飛濺跳躍藥水"
+    16385: "飛濺回復藥水"
+    16417: "飛濺回復藥水II"
+    16449: "擴充版飛濺回復藥水"
+    16386: "飛濺迅捷藥水"
+    16418: "飛濺迅捷藥水II"
+    16450: "擴充版飛濺迅捷藥水"
+    16387: "飛濺抗火藥水"
+    16419: "飛濺抗火藥水"
+    16451: "擴充版飛濺抗火藥水"
+    16388: "飛濺劇毒藥水"
+    16420: "飛濺劇毒藥水II"
+    16452: "擴充版飛濺劇毒藥水"
+    16389: "飛濺立即治療藥水"
+    16421: "飛濺立即治療藥水II"
+    16453: "飛濺立即治療藥水"
+    16390: "飛濺夜視藥水"
+    16422: "飛濺夜視藥水"
+    16454: "擴充版飛濺夜視藥水"
+    16392: "飛濺虛弱藥水"
+    16424: "飛濺虛弱藥水II"
+    16456: "擴充版飛濺虛弱藥水"
+    16393: "飛濺力量藥水"
+    16425: "飛濺力量藥水II"
+    16457: "擴充版飛濺力量藥水"
+    16394: "飛濺緩速藥水"
+    16426: "飛濺緩速藥水II"
+    16458: "擴充版飛濺緩速藥水"
+    16396: "飛濺傷害藥水"
+    16428: "飛濺藥水II"
+    16460: "擴充版飛濺傷害藥水"
+    16397: "飛濺水下呼吸藥水"
+    16429: "飛濺水下呼吸藥水"
+    16461: "擴充版飛濺水下呼吸藥水"
+    16398: "飛濺隱身藥水"
+    16430: "飛濺隱身藥水"
+    16462: "擴充版飛濺隱身藥水"
+  GLASS_BOTTLE:
+    0: "玻璃瓶"
+  SPIDER_EYE:
+    0: "蜘蛛眼"
+  FERMENTED_SPIDER_EYE:
+    0: "發酵蜘蛛眼"
+  BLAZE_POWDER:
+    0: "烈焰粉"
+  MAGMA_CREAM:
+    0: "岩漿球"
+  BREWING_STAND_ITEM:
+    0: "釀造台"
+  CAULDRON_ITEM:
+    0: "鍋釜"
+  EYE_OF_ENDER:
+    0: "終界之眼"
+  SPECKLED_MELON:
+    0: "鑲金西瓜"
+  MONSTER_EGG:
+    0: "生怪蛋"
+    50: "苦力怕生怪蛋"
+    51: "骷髏生怪蛋"
+    52: "蜘蛛生怪蛋"
+    54: "殭屍生怪蛋"
+    55: "史萊姆生怪蛋"
+    56: "地獄幽靈生怪蛋"
+    57: "殭屍豬人生怪蛋"
+    58: "終界使者生怪蛋"
+    59: "洞穴蜘蛛生怪蛋"
+    60: "蠹魚生怪蛋"
+    61: "烈焰使者生怪蛋"
+    62: "岩漿立方怪生怪蛋"
+    63: "終界龍生怪蛋"
+    64: "凋零生怪蛋"
+    65: "蝙蝠生怪蛋"
+    66: "女巫生怪蛋"
+    90: "豬生怪蛋"
+    91: "綿羊生怪蛋"
+    92: "牛生怪蛋"
+    93: "雞生怪蛋"
+    94: "魷魚生怪蛋"
+    95: "狼生怪蛋"
+    96: "哞菇生怪蛋"
+    98: "山貓生怪蛋"
+    99: "鐵巨人生怪蛋"
+    100: "馬生怪蛋"
+    120: "村民生怪蛋"
+  EXP_BOTTLE:
+    0: "經驗瓶"
+  FIREBALL:
+    0: "火焰彈"
+  WRITEABLE_BOOK:
+    0: "尚可書寫的書"
+  WRITTEN_BOOK:
+    0: "被寫過的書"
+  EMERALD:
+    0: "綠寶石"
+  ITEM_FRAME:
+    0: "物品展示框"
+  FLOWER_POT_ITEM:
+    0: "花盆"
+  CARROT_ITEM:
+    0: "胡蘿蔔"
+  POTATO_ITEM:
+    0: "馬鈴薯"
+  BAKED_POTATO:
+    0: "烤馬鈴薯"
+    1: "烤馬鈴薯"
+  POISONOUS_POTATO:
+    0: "毒馬鈴薯"
+  EMPTY_MAP:
+    0: "空地圖"
+  GOLDEN_CARROT:
+    0: "金胡蘿蔔"
+  SKULL_ITEM:
+    0: "骷髏頭顱"
+    1: "凋零骷髏頭顱"
+    2: "殭屍頭顱"
+    3: "人類頭顱"
+    4: "苦力怕頭顱"
+  CARROT_STICK:
+    0: "胡蘿蔔釣竿"
+  NETHER_STAR:
+    0: "地獄之星"
+  PUMPKIN_PIE:
+    0: "南瓜派"
+  FIREWORK:
+    0: "煙火"
+  FIREWORK_CHARGE:
+    0: "火藥球"
+  ENCHANTED_BOOK:
+    0: "附魔書"
+  REDSTONE_COMPARATOR:
+    0: "紅石比較器"
+  NETHER_BRICK_ITEM:
+    0: "地獄磚"
+  QUARTZ:
+    0: "地獄石英"
+  EXPLOSIVE_MINECART:
+    0: "TNT礦車"
+  HOPPER_MINECART:
+    0: "漏斗礦車"
+  IRON_BARDING:
+    0: "鐵馬鞍"
+  GOLD_BARDING:
+    0: "黃金製馬鎧"
+  DIAMOND_BARDING:
+    0: "鑽石製馬鎧"
+  LEASH:
+    0: "栓繩"
+  NAME_TAG:
+    0: "命名牌"
+  COMMAND_MINECART:
+    0: "指令方塊礦車"
+  GOLD_RECORD:
+    0: "13唱片"
+  GREEN_RECORD:
+    0: "Cat唱片"
+  RECORD_3:
+    0: "Blocks唱片"
+  RECORD_4:
+    0: "Chirp唱片"
+  RECORD_5:
+    0: "Far唱片"
+  RECORD_6:
+    0: "Mall唱片"
+  RECORD_7:
+    0: "Mellohi唱片"
+  RECORD_8:
+    0: "Stal唱片"
+  RECORD_9:
+    0: "Strad唱片"
+  RECORD_10:
+    0: "Ward唱片"
+  RECORD_11:
+    0: "11唱片"
+  RECORD_12:
+    0: "Wait唱片"
+  # 1.8 items
+  SLIME_BLOCK:
+    0: "史萊姆方塊"
+  BARRIER:
+    0: "屏障"
+  STANDING_BANNER:
+    0: "旗幟(立著的)"
+  WALL_BANNER:
+    0: "旗幟(貼在牆上的)"
+  IRON_TRAPDOOR:
+    0: "鐵製地板門"
+  PRISMARINE:
+    0: "海磷石"
+  SEA_LANTERN:
+    0: "海燈籠"
+  DAYLIGHT_DETECTOR_INVERTED:
+    0: "日光感測器"
+  RED_SANDSTONE:
+    0: "紅砂岩"
+  RED_SANDSTONE_STAIRS:
+    0: "紅砂岩樓梯"
+  DOUBLE_STONE_SLAB2:
+    0: "雙紅砂岩半磚"
+  STONE_SLAB2:
+    0: "紅砂岩半磚"
+  SPRUCE_FENCE_GATE:
+    0: "杉木柵欄門"
+  BIRCH_FENCE_GATE:
+    0: "樺木柵欄門"
+  JUNGLE_FENCE_GATE:
+    0: "叢林木柵欄門"
+  DARK_OAK_FENCE_GATE:
+    0: "黑橡木柵欄門"
+  ACACIA_FENCE_GATE:
+    0: "相思木柵欄門"
+  SPRUCE_FENCE:
+    0: "杉木柵欄"
+  BIRCH_FENCE:
+    0: "樺木柵欄"
+  JUNGLE_FENCE:
+    0: "叢林木柵欄"
+  DARK_OAK_FENCE:
+    0: "黑橡木柵欄"
+  ACACIA_FENCE:
+    0: "相思木柵欄"
+  SPRUCE_DOOR:
+    0: "杉木門"
+  BIRCH_DOOR:
+    0: "樺木門"
+  JUNGLE_DOOR:
+    0: "叢林木門"
+  ACACIA_DOOR:
+    0: "相思木門"
+  DARK_OAK_DOOR:
+    0: "黑橡木門"
+  PRISMARINE_SHARD:
+    0: "海磷碎片"
+  PRISMARINE_CRYSTALS:
+    0: "海磷晶體"
+  RABBIT:
+    0: "生兔肉"
+  COOKED_RABBIT:
+    0: "熟兔肉"
+  RABBIT_STEW:
+    0: "兔肉湯"
+  RABBIT_FOOT:
+    0: "兔子腳"
+  RABBIT_HIDE:
+    0: "兔子皮"
+  ARMOR_STAND:
+    0: "盔甲架"
+  MUTTON:
+    0: "生羊肉"
+  COOKED_MUTTON:
+    0: "熟羊肉"
+  BANNER:
+    0: "旗幟"
+  SPRUCE_DOOR_ITEM:
+    0: "杉木門"
+  BIRCH_DOOR_ITEM:
+    0: "樺木門"
+  JUNGLE_DOOR_ITEM:
+    0: "叢林木門"
+  ACACIA_DOOR_ITEM:
+    0: "相思木門"
+  DARK_OAK_DOOR_ITEM:
+    0: "黑橡木門"

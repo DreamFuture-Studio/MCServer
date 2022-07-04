@@ -1,0 +1,37 @@
+spawn:
+  location: freedom, -90.830, 61.640, -50.383
+  lines:
+  - '&7歡迎來到&7【&fYLNproject&7】&7伺服器'
+  - '&7目前在線玩家 &f {online} &7人'
+  - '&3http://discord.gg/xQFZkpaxVN'
+  - '&c初次加入伺服器請先透過 /discord link 綁定帳戶'
+admin:
+  location: freedom, -90.876, 63.158, -40.539
+  lines:
+  - '&7【&fYinglingdom Network&7】&7伺服器團隊'
+  - '&e有任何問題都可以到 Discord 找到我們 &c<3'
+  - '&3http://discord.gg/xQFZkpaxVN'
+protect:
+  location: freedom, -101.007, 64.743, -39.230
+  lines:
+  - 重生點保護區範圍為斜邊100格
+  - 全世界防爆防噴啟動 請安心生存
+nether:
+  location: freedom, -132.552, 66.156, -69.335
+  lines:
+  - '&4試煉地獄&f由此進入'
+  - '&e也可以自行建造傳送門'
+  - 全世界防爆防噴啟動 請安心生存
+discord:
+  location: freedom, -127.650, 65.117, -55.473
+  lines:
+  - '&d提醒 &f綁定Discord後才能獲得完整權限'
+  - '&f若您還未加入 Discord 伺服器'
+  - '&c請盡速加入並完成綁定作業'
+  - '&3http://discord.gg/xQFZkpaxVN'
+rule:
+  location: freedom, -109.095, 72.346, -67.347
+  lines:
+  - '&c伺服器規則與詳細資訊'
+  - '&7https://hackmd.io/@KageRyo/YLNproject'
+  - '&e有任何問題請洽詢管理員'

@@ -1,5 +1,13 @@
 [
   {
+    "uuid": "30839713-0882-4ad4-94fa-0cd9eeb5cca3",
+    "name": "hannakl91",
+    "created": "2022-06-09 13:52:15 +0000",
+    "source": "jie00029",
+    "expires": "forever",
+    "reason": "破壞情節嚴重依照規定永久封鎖"
+  },
+  {
     "uuid": "55bec336-8110-4c26-a51c-04bd8b90f65c",
     "name": "albertlin2008",
     "created": "2021-08-30 04:48:09 +0000",
@@ -8,20 +16,20 @@
     "reason": "破壞他人建築"
   },
   {
-    "uuid": "9e36090a-fa70-45fb-b4da-165756cdc156",
-    "name": "oiryskr",
-    "created": "2022-02-16 10:13:16 +0000",
-    "source": "YingLraft",
+    "uuid": "73d6902f-53ba-4700-8754-a63c86bb2fd2",
+    "name": "mariokart8989",
+    "created": "2022-05-29 04:12:32 +0000",
+    "source": "jie00029",
     "expires": "forever",
-    "reason": "偵測到非法程式"
+    "reason": "破壞公共設施且未綁定discord違反規則按照規定永BAN"
   },
   {
-    "uuid": "9bd7b2e1-57ae-452d-a074-77f42aedca28",
-    "name": "hao0806",
-    "created": "2022-03-11 15:41:06 +0000",
-    "source": "§6伺服器",
+    "uuid": "6011ed01-abf2-43dc-9415-81013d61f3ad",
+    "name": "karta165589",
+    "created": "2022-05-06 12:06:05 +0000",
+    "source": "YingLraft",
     "expires": "forever",
-    "reason": "惡意破壞惡意攻擊"
+    "reason": "惡意大量破壞，情節嚴重，依規定永久停權"
   },
   {
     "uuid": "62aa4955-15de-46ff-87c9-c5512e94d901",
@@ -40,6 +48,86 @@
     "reason": "屢勸不聽未遵守伺服器規定，破壞伺服器重生點南區管理員區域建築物"
   },
   {
+    "uuid": "c8b2b75e-2f7d-405e-a5ce-c9fec511c2c0",
+    "name": "HamsterSqueak66",
+    "created": "2022-03-08 12:22:29 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "竊盜他人物品且惡意破壞，已提醒過再犯"
+  },
+  {
+    "uuid": "9e36090a-fa70-45fb-b4da-165756cdc156",
+    "name": "oiryskr",
+    "created": "2022-02-16 10:13:16 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "偵測到非法程式"
+  },
+  {
+    "uuid": "c77b447f-b10f-4b68-875e-40be8c2cf246",
+    "name": "steamedegg1017",
+    "created": "2022-05-06 09:38:32 +0000",
+    "source": "§6伺服器",
+    "expires": "forever",
+    "reason": "惡意大量破壞，情節嚴重，依規定永久停權。"
+  },
+  {
+    "uuid": "aee6c47b-8bdd-4fd5-8760-438e157c0652",
+    "name": "Toast87",
+    "created": "2022-05-08 09:35:18 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "竊盜。"
+  },
+  {
+    "uuid": "afab1c00-5d1c-4614-acd3-0e4877714dd2",
+    "name": "_CyberX_",
+    "created": "2022-05-06 09:38:38 +0000",
+    "source": "§6伺服器",
+    "expires": "forever",
+    "reason": "惡意大量破壞，情節嚴重，依規定永久停權。"
+  },
+  {
+    "uuid": "05b2daae-6f69-447d-a499-d40843a0b44e",
+    "name": "howard0816",
+    "created": "2022-06-25 06:45:37 +0000",
+    "source": "jie00029",
+    "expires": "2022-07-02 06:45:37 +0000",
+    "reason": "破壞自由廣場裝飾品"
+  },
+  {
+    "uuid": "9bd7b2e1-57ae-452d-a074-77f42aedca28",
+    "name": "hao0806",
+    "created": "2022-03-11 15:41:06 +0000",
+    "source": "§6伺服器",
+    "expires": "forever",
+    "reason": "惡意破壞惡意攻擊"
+  },
+  {
+    "uuid": "60bbbda8-c527-4bc7-93bd-364e3ad4375b",
+    "name": "jerry_noob_tw",
+    "created": "2022-06-19 06:51:10 +0000",
+    "source": "jie00029",
+    "expires": "forever",
+    "reason": "未經領地或私有土地所有人同意破壞"
+  },
+  {
+    "uuid": "ffb7f281-5768-4eab-867d-e220c0af6d3b",
+    "name": "asdw30678",
+    "created": "2022-05-19 02:02:12 +0000",
+    "source": "YingLraft",
+    "expires": "forever",
+    "reason": "惡意破壞並偷竊他人物品"
+  },
+  {
+    "uuid": "3751db6f-31cb-433c-a010-f0647433e2c8",
+    "name": "Ichtoloog",
+    "created": "2022-06-29 07:24:59 +0000",
+    "source": "§6伺服器",
+    "expires": "forever",
+    "reason": "惡意大量破壞，情節嚴重，依規定永久停權。"
+  },
+  {
     "uuid": "13dcb857-8827-46ae-80e2-ba73fb9baac1",
     "name": "herocarnival",
     "created": "2021-11-13 03:49:52 +0000",
@@ -54,14 +142,6 @@
     "source": "§6伺服器",
     "expires": "forever",
     "reason": "竊盜他人個人物品及惡意破壞"
-  },
-  {
-    "uuid": "c8b2b75e-2f7d-405e-a5ce-c9fec511c2c0",
-    "name": "HamsterSqueak66",
-    "created": "2022-03-08 12:22:29 +0000",
-    "source": "YingLraft",
-    "expires": "forever",
-    "reason": "竊盜他人物品且惡意破壞，已提醒過再犯"
   },
   {
     "uuid": "2edcae2c-7e49-4ae0-83ec-bdcef128eadf",

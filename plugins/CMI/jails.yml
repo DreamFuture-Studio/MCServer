@@ -1,0 +1,8 @@
+# Command section can utilize same custom variables as scheduler. Check schedules.yml file for all possible variables.
+
+spawnjail:
+  Loc: freedom:-88.0:77.0:-8.0:-87.0:81.0:-4.0
+  safeLoc: freedom;-76.49;72.06;-5.16;147.74;2.24
+  cells:
+    '1':
+      location: freedom;-87.69;78.0;-3.3;-161.55;9.14

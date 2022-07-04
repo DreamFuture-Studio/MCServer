@@ -1,0 +1,45 @@
+# This is an example Entity limit for tiles. Users will be able to place at most 256 entity in a chunk.
+# The limit makes use of a world blacklist, which means with the current configuration it will work for all worlds.
+# It will also work for all addons.
+limit:
+  name: "Entity"
+  type: "Entity"
+  bypass-permission: "insights.bypass.limit.entity"
+  limit: 16
+  materials:
+    - "CHICKEN"
+    - "COW"
+    - "SHEEP"
+    - "PIG"
+    - "VILLAGER"
+    - "IRON_GOLEM"
+    - "BOAT"
+    - "MINECART"
+    - "ENDERMAN"
+    - "ZOMBIE"
+    - "ZOGLIN"
+    - "ZOMBIE_HOURSE"
+    - "ZOMBIE_VILLAGER"
+    - "ZOMBIFIED_PIGLIN"
+    - "SKELETON"
+    - "SKELETON_HOURSE"
+    - "SHULKER"
+    - "SHULKER_BULLET"
+    - "SNOW_GOLEM"
+    - "CREEPER"
+    - "SPIDER"
+    - "BLAZE"
+    - "AXOLOTL"
+    - "BEE"
+    - "CAVE_SPIDER"
+    - "ARMOR_STAND"
+    - "ITEM_FRAME"
+    - "HOURSE"
+  settings:
+    enabled-worlds:
+      whitelist: false
+      worlds: []
+    enabled-addons:
+      whitelist: false
+      addons: []
+    disallow-placement-outside-region: false

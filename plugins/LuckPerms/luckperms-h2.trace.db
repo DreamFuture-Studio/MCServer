@@ -1,0 +1,18 @@
+2021-07-25 13:06:37 database: flush
+org.h2.message.DbException: GeneralError
+	at org.h2.message.DbException.convert(DbException.java:350)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2780)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3123)
+	Suppressed: java.lang.OutOfMemoryError: Java heap space
+Caused by: java.sql.SQLException: GeneralError
+	... 5 more
+Caused by: java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.concurrent.ConcurrentHashMap$ValuesView.iterator(ConcurrentHashMap.java:4740)
+	at org.h2.mvstore.MVStore.hasUnsavedChanges(MVStore.java:1789)
+	at org.h2.mvstore.MVStore.hasUnsavedChangesInternal(MVStore.java:1803)
+	at org.h2.mvstore.MVStore.store(MVStore.java:1176)
+	at org.h2.mvstore.MVStore.tryCommit(MVStore.java:1135)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2763)
+	... 1 more
